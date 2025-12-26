@@ -3,9 +3,8 @@ package top.twindworld.treeauthority.demos.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import top.twindworld.treeauthority.demos.domain.dto.SysRoleDTO;
-import top.twindworld.treeauthority.demos.domain.entity.SysRole;
-import top.twindworld.treeauthority.demos.domain.entity.SysUserRole;
+import top.twindworld.treeauthority.demos.domain.po.SysRole;
+import top.twindworld.treeauthority.demos.domain.po.SysUserRole;
 import top.twindworld.treeauthority.demos.mapper.SysRoleMapper;
 import top.twindworld.treeauthority.demos.service.SysRoleService;
 

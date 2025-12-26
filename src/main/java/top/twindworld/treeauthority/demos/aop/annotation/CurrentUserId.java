@@ -1,4 +1,4 @@
-package top.twindworld.treeauthority.demos.AOP.annotation;
+package top.twindworld.treeauthority.demos.aop.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -3,8 +3,8 @@ package top.twindworld.treeauthority.demos.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import top.twindworld.treeauthority.demos.domain.entity.SysFunction;
-import top.twindworld.treeauthority.demos.domain.entity.SysRoleFunction;
+import top.twindworld.treeauthority.demos.domain.po.SysFunction;
+import top.twindworld.treeauthority.demos.domain.po.SysRoleFunction;
 import top.twindworld.treeauthority.demos.mapper.SysFunctionMapper;
 import top.twindworld.treeauthority.demos.service.SysFunctionService;
 

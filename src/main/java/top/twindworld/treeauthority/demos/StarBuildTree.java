@@ -7,16 +7,14 @@ import top.twindworld.treeauthority.demos.config.AuthorityCollection;
 import top.twindworld.treeauthority.demos.domain.dto.SysFunctionDTO;
 import top.twindworld.treeauthority.demos.domain.dto.SysRoleDTO;
 import top.twindworld.treeauthority.demos.domain.dto.SysUserDTO;
-import top.twindworld.treeauthority.demos.domain.entity.*;
+import top.twindworld.treeauthority.demos.domain.po.*;
 import top.twindworld.treeauthority.demos.service.SysFunctionService;
 import top.twindworld.treeauthority.demos.service.SysRoleService;
 import top.twindworld.treeauthority.demos.service.SysUserService;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor

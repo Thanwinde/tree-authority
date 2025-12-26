@@ -2,8 +2,8 @@ package top.twindworld.treeauthority.demos.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import top.twindworld.treeauthority.demos.domain.entity.SysFunction;
-import top.twindworld.treeauthority.demos.domain.entity.SysRoleFunction;
+import top.twindworld.treeauthority.demos.domain.po.SysFunction;
+import top.twindworld.treeauthority.demos.domain.po.SysRoleFunction;
 
 import java.util.List;
 

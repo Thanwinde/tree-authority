@@ -1,10 +1,8 @@
 package top.twindworld.treeauthority.demos.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import top.twindworld.treeauthority.demos.domain.dto.SysRoleDTO;
-import top.twindworld.treeauthority.demos.domain.entity.SysRole;
-import top.twindworld.treeauthority.demos.domain.entity.SysUser;
-import top.twindworld.treeauthority.demos.domain.entity.SysUserRole;
+import top.twindworld.treeauthority.demos.domain.po.SysRole;
+import top.twindworld.treeauthority.demos.domain.po.SysUserRole;
 
 import java.util.List;
 

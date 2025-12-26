@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
-@TableName("sys_function")
 public class SysFunctionDTO {
 
     @TableId(type = IdType.AUTO)

@@ -9,12 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * 使用 @Getter @Setter 而不是 @Data，
- * 防止 JPA 双向关联时 hashCode() 死循环
- */
 @Data
-@TableName("sys_role")
 public class SysRoleDTO {
 
     @TableId(type = IdType.AUTO)

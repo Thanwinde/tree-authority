@@ -1,11 +1,11 @@
-package top.twindworld.treeauthority.demos.AOP.interceptor.handler;
+package top.twindworld.treeauthority.demos.aop.interceptor.handler;
 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import top.twindworld.treeauthority.demos.AOP.interceptor.NoAuthorityException;
+import top.twindworld.treeauthority.demos.aop.interceptor.NoAuthorityException;
 import top.twindworld.treeauthority.demos.domain.Result;
 
 /**

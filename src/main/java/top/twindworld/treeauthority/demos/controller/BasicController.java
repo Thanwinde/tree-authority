@@ -17,8 +17,8 @@
 package top.twindworld.treeauthority.demos.controller;
 
 import org.springframework.web.bind.annotation.*;
-import top.twindworld.treeauthority.demos.AOP.annotation.CurrentUserId;
-import top.twindworld.treeauthority.demos.AOP.annotation.RequirePermission;
+import top.twindworld.treeauthority.demos.aop.annotation.CurrentUserId;
+import top.twindworld.treeauthority.demos.aop.annotation.RequirePermission;
 
 
 @RestController

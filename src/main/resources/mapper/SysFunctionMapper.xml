@@ -3,14 +3,14 @@
 <mapper namespace="top.twindworld.treeauthority.demos.mapper.SysFunctionMapper">
 
     <select id="getFunctionsByRoleId"
-            resultType="top.twindworld.treeauthority.demos.domain.entity.SysFunction">
+            resultType="top.twindworld.treeauthority.demos.domain.po.SysFunction">
         SELECT f.id, f.function_name, f.function_key
         FROM sys_function f
         JOIN sys_role_function rf ON rf.function_id = f.id
         WHERE rf.role_id = #{roleId}
     </select>
     <select id="getAllRoleFunctions"
-            resultType="top.twindworld.treeauthority.demos.domain.entity.SysRoleFunction">
+            resultType="top.twindworld.treeauthority.demos.domain.po.SysRoleFunction">
         SELECT * FROM sys_role_function
     </select>
 </mapper>

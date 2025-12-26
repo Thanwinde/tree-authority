@@ -1,4 +1,4 @@
-package top.twindworld.treeauthority.demos.domain.entity;
+package top.twindworld.treeauthority.demos.domain.po;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

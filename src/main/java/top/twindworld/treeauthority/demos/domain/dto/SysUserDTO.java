@@ -11,7 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 
 @Data
-@TableName("sys_user")
 public class SysUserDTO {
 
     @TableId(type = IdType.AUTO)

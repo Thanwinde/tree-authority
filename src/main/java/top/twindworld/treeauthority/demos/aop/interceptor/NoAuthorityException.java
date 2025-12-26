@@ -1,4 +1,4 @@
-package top.twindworld.treeauthority.demos.AOP.interceptor;
+package top.twindworld.treeauthority.demos.aop.interceptor;
 
 import lombok.Getter;
 

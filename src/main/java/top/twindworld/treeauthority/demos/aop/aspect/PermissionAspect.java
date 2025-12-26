@@ -1,4 +1,4 @@
-package top.twindworld.treeauthority.demos.AOP.aspect;
+package top.twindworld.treeauthority.demos.aop.aspect;
 
 
 import org.aspectj.lang.JoinPoint;
@@ -6,9 +6,9 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
-import top.twindworld.treeauthority.demos.AOP.annotation.CurrentUserId;
-import top.twindworld.treeauthority.demos.AOP.annotation.RequirePermission;
-import top.twindworld.treeauthority.demos.AOP.interceptor.NoAuthorityException;
+import top.twindworld.treeauthority.demos.aop.annotation.CurrentUserId;
+import top.twindworld.treeauthority.demos.aop.annotation.RequirePermission;
+import top.twindworld.treeauthority.demos.aop.interceptor.NoAuthorityException;
 import top.twindworld.treeauthority.demos.config.AuthorityCollection;
 import top.twindworld.treeauthority.demos.domain.dto.SysUserDTO;
 
@@ -25,7 +25,7 @@ public class PermissionAspect {
     /**
      * 拦截所有加上了 @RequirePermission 注解的方法
      */
-    @Before("@annotation(top.twindworld.treeauthority.demos.AOP.annotation.RequirePermission)")
+    @Before("@annotation(top.twindworld.treeauthority.demos.aop.annotation.RequirePermission)")
     public void checkPermission(JoinPoint point) {
         // 1. 获取注解详情
         MethodSignature signature = (MethodSignature) point.getSignature();
