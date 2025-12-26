@@ -1,10 +1,11 @@
-package top.twindworld.treeauthority.demos.AOP.interceptor;
+package top.twindworld.treeauthority.demos.AOP.interceptor.handler;
 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import top.twindworld.treeauthority.demos.AOP.interceptor.NoAuthorityException;
 import top.twindworld.treeauthority.demos.domain.Result;
 
 /**
@@ -19,9 +20,9 @@ public class GlobalExceptionHandler {
     /**
      * 1. 拦截我们自定义的业务异常
      */
-    @ExceptionHandler(BizException.class)
-    public Result<?> handleBizException(BizException e) {
-        log.warn("业务异常: {}", e.getMsg());
+    @ExceptionHandler(NoAuthorityException.class)
+    public Result<?> handleBizException(NoAuthorityException e) {
+        log.warn("你没有对应权限: {}", e.getMsg());
         // 返回 JSON：{ "code": 500, "msg": "用户不存在", "data": null }
         return Result.error(e.getCode(), e.getMsg());
     }
@@ -33,17 +34,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Result<?> handleException(Exception e) {
         log.error("系统未知异常", e);
-        // 返回 JSON：{ "code": 999, "msg": "系统繁忙，请稍后重试", "data": null }
-        return Result.error(999, "系统繁忙，请稍后重试");
+        return Result.error(500, "系统繁忙，请稍后重试");
     }
-    
-    /**
-     * 3. 拦截特定异常，例如权限不足 (结合你之前的 RBAC)
-     */
-    /*
-    @ExceptionHandler(AccessDeniedException.class) // 如果用 Spring Security
-    public Result<?> handleAccessDeniedException(Exception e) {
-        return Result.error(403, "您没有权限执行此操作");
-    }
-    */
+
 }

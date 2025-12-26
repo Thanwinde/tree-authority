@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Data
 @TableName("sys_role")
-public class SysRole {
+public class SysRoleDTO {
 
     @TableId(type = IdType.AUTO)
     private Long id;
@@ -23,17 +24,16 @@ public class SysRole {
 
     private String roleKey;
 
-    // ================== 1. 角色继承关系 (自关联) ==================
-
+    private Long parentId;
     /**
      * 父角色 (对应数据库 parent_id)
      */
-    private SysRole parent;
+    private SysRoleDTO parent;
 
     /**
      * 子角色列表 (可选，用于查询下级)
      */
-    private List<SysRole> children = new ArrayList<>();
+    private List<SysRoleDTO> children = new ArrayList<>();
 
     // ================== 2. 角色-功能关系 (多对多) ==================
 
@@ -41,10 +41,6 @@ public class SysRole {
      * 该角色拥有的功能
      * 对应中间表：sys_role_function
      */
-    private List<SysFunction> functions = new ArrayList<>();
+    private HashMap<String,SysFunctionDTO> functions = new HashMap<>();
 
-    // ================== 3. 角色-用户关系 (多对多) ==================
-    
-    // 通常由 User 端维护关系，这里用 mappedBy 放弃维护权
-    private List<SysUser> users = new ArrayList<>();
 }

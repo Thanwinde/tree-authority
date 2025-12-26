@@ -6,27 +6,26 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 @Data
 @TableName("sys_user")
-public class SysUser {
+public class SysUserDTO {
 
     @TableId(type = IdType.AUTO)
     private Long id;
 
     private String username;
 
-    /**
-     * 密码通常不返回给前端，加上 @JsonIgnore
-     */
     private String password;
 
-    // ================== 用户-角色关系 (多对多) ==================
+    private List<SysRoleDTO> roles = new ArrayList<>();
 
-    /**
-     * 用户拥有的角色
-     * 对应中间表：sys_user_role
-     */
-    private List<SysRole> roles = new ArrayList<>();
+    private  HashSet<String> roleSet = new HashSet<>();
+
+    private List<SysFunctionDTO> functions = new ArrayList<>();
+
+    private HashSet<String> functionSet = new HashSet<>();
 }

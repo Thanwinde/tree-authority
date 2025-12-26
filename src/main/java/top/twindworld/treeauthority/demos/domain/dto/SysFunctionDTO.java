@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @TableName("sys_function")
-public class SysFunction {
+public class SysFunctionDTO {
 
     @TableId(type = IdType.AUTO)
     private Long id;

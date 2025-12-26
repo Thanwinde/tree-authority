@@ -1,4 +1,7 @@
 package top.twindworld.treeauthority.demos.service;
 
-public interface SysUserService {
+import com.baomidou.mybatisplus.extension.service.IService;
+import top.twindworld.treeauthority.demos.domain.entity.SysUser;
+
+public interface SysUserService extends IService<SysUser> {
 }

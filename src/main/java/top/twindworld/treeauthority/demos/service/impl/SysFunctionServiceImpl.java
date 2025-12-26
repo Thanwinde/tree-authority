@@ -1,4 +1,26 @@
 package top.twindworld.treeauthority.demos.service.impl;
 
-public class SysFunctionServiceImpl {
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import top.twindworld.treeauthority.demos.domain.entity.SysFunction;
+import top.twindworld.treeauthority.demos.domain.entity.SysRoleFunction;
+import top.twindworld.treeauthority.demos.mapper.SysFunctionMapper;
+import top.twindworld.treeauthority.demos.service.SysFunctionService;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class SysFunctionServiceImpl extends ServiceImpl<SysFunctionMapper, SysFunction> implements SysFunctionService {
+    private final SysFunctionMapper sysFunctionMapper;
+    @Override
+    public List<SysFunction> getFunctionsByRoleId(Long id) {
+        return sysFunctionMapper.getFunctionsByRoleId(id);
+    }
+
+    @Override
+    public List<SysRoleFunction> getAllRoleFunctions() {
+        return sysFunctionMapper.getAllRoleFunctions();
+    }
 }

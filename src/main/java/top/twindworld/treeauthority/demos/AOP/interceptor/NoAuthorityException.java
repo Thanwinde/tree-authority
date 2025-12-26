@@ -10,12 +10,12 @@ public class NoAuthorityException extends RuntimeException {
     // 默认使用 500 错误码
     public NoAuthorityException(String msg) {
         super(msg);
-        this.code = 500;
+        this.code = 403;
         this.msg = msg;
     }
 
     // 自定义错误码
-    public BizException(Integer code, String msg) {
+    public NoAuthorityException(Integer code, String msg) {
         super(msg);
         this.code = code;
         this.msg = msg;
