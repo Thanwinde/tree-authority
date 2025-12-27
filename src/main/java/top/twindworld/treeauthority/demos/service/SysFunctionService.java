@@ -10,4 +10,8 @@ public interface SysFunctionService extends IService<SysFunction> {
     List<SysFunction> getFunctionsByRoleId(Long id);
 
     List<SysRoleFunction> getAllRoleFunctions();
+
+    int insertRoleFunction(Long roleId, Long functionId);
+
+    int deleteRoleFunction(Long roleId, Long functionId);
 }

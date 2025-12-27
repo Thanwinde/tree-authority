@@ -13,4 +13,14 @@
             resultType="top.twindworld.treeauthority.demos.domain.po.SysRoleFunction">
         SELECT * FROM sys_role_function
     </select>
+
+    <insert id="insertRoleFunction">
+        INSERT IGNORE INTO sys_role_function(role_id, function_id)
+        VALUES (#{roleId}, #{functionId})
+    </insert>
+
+    <delete id="deleteRoleFunction">
+        DELETE FROM sys_role_function
+        WHERE role_id = #{roleId} AND function_id = #{functionId}
+    </delete>
 </mapper>
