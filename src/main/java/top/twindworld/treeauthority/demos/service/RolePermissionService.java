@@ -7,7 +7,9 @@ import top.twindworld.treeauthority.demos.aop.interceptor.NoAuthorityException;
 import top.twindworld.treeauthority.demos.domain.po.SysFunction;
 import top.twindworld.treeauthority.demos.domain.po.SysRole;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -36,7 +38,7 @@ public class RolePermissionService {
             }
             sysFunctionService.insertRoleFunction(role.getId(), function.getId());
         }
-        redisAuthorityService.refreshRoleFunctions(role);
+        refreshRoleRelatedUsers(role);
     }
 
     @Transactional
@@ -59,6 +61,11 @@ public class RolePermissionService {
             }
             sysFunctionService.deleteRoleFunction(role.getId(), function.getId());
         }
-        redisAuthorityService.refreshRoleFunctions(role);
+        refreshRoleRelatedUsers(role);
+    }
+
+    private void refreshRoleRelatedUsers(SysRole role) {
+        Set<String> roleKeys = new HashSet<>(redisAuthorityService.getRoleAndParentKeys(role));
+        redisAuthorityService.refreshUsersByRoleKeys(roleKeys);
     }
 }
