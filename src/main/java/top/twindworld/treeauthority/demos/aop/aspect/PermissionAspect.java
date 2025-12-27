@@ -9,18 +9,21 @@ import org.springframework.stereotype.Component;
 import top.twindworld.treeauthority.demos.aop.annotation.CurrentUserId;
 import top.twindworld.treeauthority.demos.aop.annotation.RequirePermission;
 import top.twindworld.treeauthority.demos.aop.interceptor.NoAuthorityException;
-import top.twindworld.treeauthority.demos.config.AuthorityCollection;
-import top.twindworld.treeauthority.demos.domain.dto.SysUserDTO;
+import top.twindworld.treeauthority.demos.service.RedisAuthorityService;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Set;
 
 @Aspect
 @Component
 public class PermissionAspect {
+    private final RedisAuthorityService redisAuthorityService;
+
+    public PermissionAspect(RedisAuthorityService redisAuthorityService) {
+        this.redisAuthorityService = redisAuthorityService;
+    }
 
     /**
      * 拦截所有加上了 @RequirePermission 注解的方法
@@ -53,15 +56,14 @@ public class PermissionAspect {
         if (currentUserId == null) {
             throw new NoAuthorityException(401,"无法获取当前用户 ID，权限校验失败");
         }
-        HashMap<Long, SysUserDTO> userMap = AuthorityCollection.userMap;
-        SysUserDTO sysUserDTO = userMap.get(currentUserId);
+        Set<String> userFunctionKeys = redisAuthorityService.getUserFunctionKeys(currentUserId);
 
         // 3. 获取接口要求的权限
         String[] requiredPerms = annotation.value();
         RequirePermission.Logical logical = annotation.logical();
 
         // 4. 开始校验
-        check(sysUserDTO.getFunctionSet(), requiredPerms, logical);
+        check(userFunctionKeys, requiredPerms, logical);
     }
 
     /**

@@ -23,4 +23,14 @@ public class SysFunctionServiceImpl extends ServiceImpl<SysFunctionMapper, SysFu
     public List<SysRoleFunction> getAllRoleFunctions() {
         return sysFunctionMapper.getAllRoleFunctions();
     }
+
+    @Override
+    public int insertRoleFunction(Long roleId, Long functionId) {
+        return sysFunctionMapper.insertRoleFunction(roleId, functionId);
+    }
+
+    @Override
+    public int deleteRoleFunction(Long roleId, Long functionId) {
+        return sysFunctionMapper.deleteRoleFunction(roleId, functionId);
+    }
 }
